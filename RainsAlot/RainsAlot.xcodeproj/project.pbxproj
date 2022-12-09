@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9655F25B294330F6009B408A /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F25A294330F6009B408A /* DayViewController.swift */; };
+		9655F25C294330F6009B408A /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F25A294330F6009B408A /* DayViewController.swift */; };
+		9655F25F29433132009B408A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F25E29433132009B408A /* WeekViewController.swift */; };
+		9655F26029433132009B408A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F25E29433132009B408A /* WeekViewController.swift */; };
+		9655F263294331D5009B408A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F262294331D5009B408A /* UIViewController.swift */; };
+		9655F264294331D5009B408A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F262294331D5009B408A /* UIViewController.swift */; };
+		9655F2662943321E009B408A /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2652943321E009B408A /* UIStoryboard.swift */; };
+		9655F2672943321E009B408A /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2652943321E009B408A /* UIStoryboard.swift */; };
 		96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5D82943178B002156C0 /* AppDelegate.swift */; };
 		96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DA2943178B002156C0 /* SceneDelegate.swift */; };
-		96D4C5DD2943178B002156C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DC2943178B002156C0 /* ViewController.swift */; };
+		96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DC2943178B002156C0 /* RootViewController.swift */; };
 		96D4C5E02943178B002156C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D4C5DE2943178B002156C0 /* Main.storyboard */; };
 		96D4C5E22943178D002156C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D4C5E12943178D002156C0 /* Assets.xcassets */; };
 		96D4C5E52943178D002156C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D4C5E32943178D002156C0 /* LaunchScreen.storyboard */; };
@@ -36,10 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9655F25A294330F6009B408A /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		9655F25E29433132009B408A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		9655F262294331D5009B408A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9655F2652943321E009B408A /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		96D4C5D52943178B002156C0 /* RainsAlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainsAlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D4C5D82943178B002156C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96D4C5DA2943178B002156C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		96D4C5DC2943178B002156C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		96D4C5DC2943178B002156C0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		96D4C5DF2943178B002156C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96D4C5E12943178D002156C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96D4C5E42943178D002156C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +88,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9655F258294330B0009B408A /* WeatherViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9655F25D29433118009B408A /* WeekViewController */,
+				9655F259294330C1009B408A /* DayViewController */,
+			);
+			path = WeatherViewControllers;
+			sourceTree = "<group>";
+		};
+		9655F259294330C1009B408A /* DayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9655F25A294330F6009B408A /* DayViewController.swift */,
+			);
+			path = DayViewController;
+			sourceTree = "<group>";
+		};
+		9655F25D29433118009B408A /* WeekViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9655F25E29433132009B408A /* WeekViewController.swift */,
+			);
+			path = WeekViewController;
+			sourceTree = "<group>";
+		};
+		9655F261294331BA009B408A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9655F262294331D5009B408A /* UIViewController.swift */,
+				9655F2652943321E009B408A /* UIStoryboard.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		96D4C5CC2943178B002156C0 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +145,12 @@
 		96D4C5D72943178B002156C0 /* RainsAlot */ = {
 			isa = PBXGroup;
 			children = (
-				96D4C5D82943178B002156C0 /* AppDelegate.swift */,
-				96D4C5DA2943178B002156C0 /* SceneDelegate.swift */,
-				96D4C5DC2943178B002156C0 /* ViewController.swift */,
-				96D4C5DE2943178B002156C0 /* Main.storyboard */,
-				96D4C5E12943178D002156C0 /* Assets.xcassets */,
-				96D4C5E32943178D002156C0 /* LaunchScreen.storyboard */,
-				96D4C5E62943178D002156C0 /* Info.plist */,
+				9655F261294331BA009B408A /* Extensions */,
+				96D4C60D29431DCD002156C0 /* Resources */,
+				96D4C60C29431DC5002156C0 /* SupportingFiles */,
+				96D4C60B29431DBE002156C0 /* Storyboards */,
+				96D4C60929431D1F002156C0 /* ViewControllers */,
+				96D4C60829431CE9002156C0 /* ApplicationDelegate */,
 			);
 			path = RainsAlot;
 			sourceTree = "<group>";
@@ -125,6 +170,57 @@
 				96D4C5FB2943178D002156C0 /* RainsAlotUITestsLaunchTests.swift */,
 			);
 			path = RainsAlotUITests;
+			sourceTree = "<group>";
+		};
+		96D4C60829431CE9002156C0 /* ApplicationDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				96D4C5D82943178B002156C0 /* AppDelegate.swift */,
+				96D4C5DA2943178B002156C0 /* SceneDelegate.swift */,
+			);
+			path = ApplicationDelegate;
+			sourceTree = "<group>";
+		};
+		96D4C60929431D1F002156C0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9655F258294330B0009B408A /* WeatherViewControllers */,
+				96D4C60A29431D3F002156C0 /* RootViewController */,
+				96D4C5DC2943178B002156C0 /* RootViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		96D4C60A29431D3F002156C0 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RootViewController;
+			sourceTree = "<group>";
+		};
+		96D4C60B29431DBE002156C0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				96D4C5DE2943178B002156C0 /* Main.storyboard */,
+				96D4C5E32943178D002156C0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		96D4C60C29431DC5002156C0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				96D4C5E62943178D002156C0 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		96D4C60D29431DCD002156C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96D4C5E12943178D002156C0 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D4C5DD2943178B002156C0 /* ViewController.swift in Sources */,
+				9655F25F29433132009B408A /* WeekViewController.swift in Sources */,
+				96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */,
+				9655F263294331D5009B408A /* UIViewController.swift in Sources */,
 				96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */,
 				96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */,
+				9655F25B294330F6009B408A /* DayViewController.swift in Sources */,
+				9655F2662943321E009B408A /* UIStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +368,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9655F26029433132009B408A /* WeekViewController.swift in Sources */,
+				9655F2672943321E009B408A /* UIStoryboard.swift in Sources */,
 				96D4C5F02943178D002156C0 /* RainsAlotTests.swift in Sources */,
+				9655F264294331D5009B408A /* UIViewController.swift in Sources */,
+				9655F25C294330F6009B408A /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,12 +543,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P662H3S28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RainsAlot/Info.plist;
+				INFOPLIST_FILE = RainsAlot/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RainsAlot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,12 +574,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P662H3S28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RainsAlot/Info.plist;
+				INFOPLIST_FILE = RainsAlot/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RainsAlot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
