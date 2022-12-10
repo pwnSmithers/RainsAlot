@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol ForecastWeatherData {
+    var forecast: [ForecastWeatherConditions] {get}
+}
+
+protocol ForecastWeatherConditions {
+    var main: MainClass {get}
+    var weather: [Weather] {get}
+    var wind: Wind {get}
+}
