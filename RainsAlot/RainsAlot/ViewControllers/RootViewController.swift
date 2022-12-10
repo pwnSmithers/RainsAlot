@@ -9,7 +9,19 @@ import UIKit
 
 final class RootViewController: UIViewController {
 
+    enum AlertType {
+        case noWeatherDataAvailable
+    }
+
     //MARK: - Properties
+    var viewModel: RootViewModel? {
+        didSet {
+            guard let viewModel = viewModel else {
+                return
+            }
+            setupViewModel(with: viewModel)
+        }
+    }
 
     private let dayViewController: DayViewController = {
         guard let dayViewController = UIStoryboard.main.instantiateViewController(withIdentifier: DayViewController.storyboardIdentifier) as? DayViewController else {
@@ -53,9 +65,39 @@ final class RootViewController: UIViewController {
         dayViewController.didMove(toParent: self)
         weekViewController.didMove(toParent: self)
     }
+
+    func setupViewModel(with: RootViewModel) {
+        viewModel?.didFetchWeatherData = {[weak self] (data, error) in
+            if let _ = error {
+                self?.presentAlert(of: .noWeatherDataAvailable)
+            } else if let data = data {
+                print("data \(data)")
+            } else {
+                self?.presentAlert(of: .noWeatherDataAvailable)
+            }
+
+        }
+    }
+
+    private func presentAlert(of alertType: AlertType) {
+        let title: String
+        let message: String
+
+        switch alertType {
+        case .noWeatherDataAvailable:
+            title = "Unable to Fetch Weather Data"
+            message = "The application is unable to fetch weather data. Please make sure your device is connected over Wi-Fi or cellular."
+        }
+
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel)
+        alertController.addAction(cancelAction)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
+    }
 }
-
-
 
 extension RootViewController {
     fileprivate enum Layout {
