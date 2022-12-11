@@ -14,7 +14,7 @@ struct WeekViewModel {
         return weatherData.count
     }
 
-//    func viewModel(for index: Int) -> WeekDayViewModel {
-//        return WeekDayViewModel(weatherData: weatherData[index])
-//    }
+    func viewModel(for index: Int) -> WeekDayViewModel {
+        return WeekDayViewModel(weatherData: weatherData[index])
+    }
 }

@@ -159,13 +159,79 @@
                     <view key="view" contentMode="scaleToFill" id="VCd-Zt-2uy">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7Pn-Z2-s4i">
+                                <rect key="frame" x="185" y="412" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-87-5TL">
+                                <rect key="frame" x="0.0" y="33" width="390" height="811"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeekDayTableViewCell" rowHeight="63" id="aKs-zT-EQG" customClass="WeekDayTableViewCell" customModule="RainsAlot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKs-zT-EQG" id="BGh-Jr-FwV">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-BS-a5I">
+                                                    <rect key="frame" x="20" y="21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBd-tb-D6r">
+                                                    <rect key="frame" x="334" y="22" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaO-Zf-bXK">
+                                                    <rect key="frame" x="175" y="11" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Bbf-Cu-sf3"/>
+                                                        <constraint firstAttribute="width" constant="40" id="Hgt-rh-Oau"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SBd-tb-D6r" secondAttribute="trailing" constant="-6" id="Aek-5B-J2n"/>
+                                                <constraint firstItem="SaO-Zf-bXK" firstAttribute="top" secondItem="BGh-Jr-FwV" secondAttribute="topMargin" id="RoY-oh-PIf"/>
+                                                <constraint firstItem="CHf-BS-a5I" firstAttribute="centerY" secondItem="SaO-Zf-bXK" secondAttribute="centerY" id="cAd-Z1-hmR"/>
+                                                <constraint firstItem="CHf-BS-a5I" firstAttribute="leading" secondItem="BGh-Jr-FwV" secondAttribute="leadingMargin" id="dbY-8r-4CV"/>
+                                                <constraint firstItem="CHf-BS-a5I" firstAttribute="top" secondItem="BGh-Jr-FwV" secondAttribute="topMargin" constant="10" id="gaw-Yi-hro"/>
+                                                <constraint firstItem="SaO-Zf-bXK" firstAttribute="centerX" secondItem="BGh-Jr-FwV" secondAttribute="centerX" id="nOw-8s-XlE"/>
+                                                <constraint firstItem="SBd-tb-D6r" firstAttribute="top" secondItem="BGh-Jr-FwV" secondAttribute="topMargin" constant="11" id="nYU-DQ-5no"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayOfTheWeek" destination="CHf-BS-a5I" id="AWe-0J-C5b"/>
+                                            <outlet property="iconImage" destination="SaO-Zf-bXK" id="Gxw-cQ-YQv"/>
+                                            <outlet property="temperature" destination="SBd-tb-D6r" id="Sv4-zT-0Ti"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="w4M-mN-Nqm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="centerX" secondItem="7Pn-Z2-s4i" secondAttribute="centerX" id="BcE-ay-xM8"/>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="centerY" secondItem="7Pn-Z2-s4i" secondAttribute="centerY" constant="16.5" id="D5k-yc-Wg5"/>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="top" secondItem="VCd-Zt-2uy" secondAttribute="topMargin" constant="-14" id="HW8-Hn-ScF"/>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="centerX" secondItem="VCd-Zt-2uy" secondAttribute="centerX" id="ISL-bY-M6M"/>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="leading" secondItem="w4M-mN-Nqm" secondAttribute="leading" id="cfV-Oo-zKd"/>
+                            <constraint firstItem="Sjh-87-5TL" firstAttribute="centerY" secondItem="VCd-Zt-2uy" secondAttribute="centerY" constant="16.5" id="vIl-Ck-vlQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7Pn-Z2-s4i" id="4C1-zq-45Z"/>
+                        <outlet property="weekTableView" destination="Sjh-87-5TL" id="qZb-5j-VQA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0P-FT-zPf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="4"/>
+            <point key="canvasLocation" x="1476.9230769230769" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>

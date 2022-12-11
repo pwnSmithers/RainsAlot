@@ -10,6 +10,8 @@ import UIKit
 final class RootViewController: UIViewController {
 
     enum AlertType {
+        case notAuthorizedToRequestLocation
+        case failedToRequestLocation
         case noWeatherDataAvailable
     }
 
@@ -20,6 +22,7 @@ final class RootViewController: UIViewController {
                 return
             }
             setupViewModel(with: viewModel)
+            setupForecastViewModel(with: viewModel)
         }
     }
 
@@ -57,7 +60,7 @@ final class RootViewController: UIViewController {
         dayViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dayViewController.view.heightAnchor.constraint(equalToConstant: Layout.DayView.height).isActive = true
 
-        weekViewController.view.topAnchor.constraint(equalTo: dayViewController.view.bottomAnchor).isActive = true
+        weekViewController.view.topAnchor.constraint(equalTo: dayViewController.view.bottomAnchor, constant: 20).isActive = true
         weekViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         weekViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         weekViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -66,15 +69,34 @@ final class RootViewController: UIViewController {
         weekViewController.didMove(toParent: self)
     }
 
-    func setupViewModel(with: RootViewModel) {
-        viewModel?.didFetchWeatherData = {[weak self] (weatherData, error) in
-            if let _ = error {
-                self?.presentAlert(of: .noWeatherDataAvailable)
-            } else if let weatherData = weatherData {
-                print("weather data \(weatherData)")
+    func setupViewModel(with viewModel: RootViewModel) {
+        viewModel.didFetchCurrentWeatherData = {[weak self] (result) in
+            switch result {
+            case .success(let weatherData):
                 let dayViewModel = DayViewModel(currentWeatherData: weatherData.current, currentWind: weatherData.currentWind, todaysWeather: weatherData.currentWeather, currentLoaction: weatherData.locationName)
                 self?.dayViewController.viewModel = dayViewModel
-            } else {
+            case .failure(let error):
+            let alertType: AlertType
+            switch error {
+            case .notAuthorizedToRequestLocation:
+                alertType = .notAuthorizedToRequestLocation
+            case .noWeatherDataAvailable:
+                alertType = .noWeatherDataAvailable
+            case .failedToRequestLocation:
+                alertType = .failedToRequestLocation
+            }
+            self?.presentAlert(of: alertType)
+            }
+        }
+    }
+
+    private func setupForecastViewModel(with viewModel: RootViewModel) {
+        viewModel.didFetchForecastWeatherData = {[weak self] (result) in
+            switch result {
+            case .success(let weatherData):
+                let weekViewModel = WeekViewModel(weatherData: weatherData.forecast)
+                self?.weekViewController.viewModel = weekViewModel
+            case .failure(_):
                 self?.presentAlert(of: .noWeatherDataAvailable)
             }
         }
@@ -86,18 +108,24 @@ final class RootViewController: UIViewController {
 
         switch alertType {
         case .noWeatherDataAvailable:
-            title = "Unable to Fetch Weather Data"
-            message = "The application is unable to fetch weather data. Please make sure your device is connected over Wi-Fi or cellular."
+            title = "Unable to fetch weather data"
+            message = "The application is unable to fetch weather data. Please make sure your device is connected over wifi or cellular"
+        case .notAuthorizedToRequestLocation:
+            title = "Unable to fetch wether data for your location"
+            message = "Raintaculous is not authorized to access your current location. This means it's unable to show you your current location. You can grant Raintaculous access to current location in the settings application."
+        case .failedToRequestLocation:
+            title = "Unable to fetch weather data"
+            message = "The application is unable to fetch your location. Please make sure your device is connected over wi-fi or cellular."
         }
 
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel)
-        alertController.addAction(cancelAction)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
         DispatchQueue.main.async {
-            self.present(alertController, animated: true)
+            self.present(alert, animated: true)
         }
     }
+
 }
 
 extension RootViewController {

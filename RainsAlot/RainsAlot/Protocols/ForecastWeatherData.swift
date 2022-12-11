@@ -15,4 +15,5 @@ protocol ForecastWeatherConditions {
     var main: MainClass {get}
     var weather: [Weather] {get}
     var wind: Wind {get}
+    var dtTxt: String {get}
 }

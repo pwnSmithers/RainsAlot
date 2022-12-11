@@ -8,31 +8,30 @@
 import UIKit
 struct WeekDayViewModel {
 
-//    let weatherData: ForecastWeatherConditions
-//
-//    var tempreture: String {
-//        let min = String(format: "%.1f °F", weatherData.main.tempMin)
-//        let max = String(format: "%.1f °F", weatherData.main.tempMax)
-//        return "\(min) - \(max)"
-//    }
-//    var windSpeed: String {
-//        return String("\(weatherData.wind.speed) MPH")
-//    }
-//
-//
-//    var humidity: String {
-//        return String("\(weatherData.main.humidity) %")
-//    }
-//
-//    var image: UIImage? {
-//        return UIImage.imageForIcon(with: "\(weatherData.weather[0].main)", and: "\(weatherData.weather[0].icon)")
-//    }
-//
-//    var description: String {
-//        return weatherData.weather[0].weatherDescription
-//    }
+    let weatherData: ForecastWeatherConditions
+    let dateFormatter = DateFormatter()
+
+    var tempreture: String {
+        let temp = String(format: "%.1f °F", weatherData.main.temp)
+        return temp
+    }
+
+    var image: UIImage? {
+        print("\(weatherData.weather[0].main)")
+        return UIImage.iconForWeather(with: "\(weatherData.weather[0].main)")?.withTintColor(.black)
+    }
+
+
+    var day: String {
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: weatherData.dtTxt)
+
+        dateFormatter.dateFormat = "EEEE"
+        let weekday = dateFormatter.string(from: date ?? Date())
+        return weekday
+    }
 }
 
-//extension WeekDayViewModel: WeekDayRepresentable {
-//
-//}
+extension WeekDayViewModel: WeekDayRepresentable {
+
+}

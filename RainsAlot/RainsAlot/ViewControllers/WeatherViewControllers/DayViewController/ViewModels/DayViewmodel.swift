@@ -31,6 +31,6 @@ struct DayViewModel {
     }
 
     var backgroundImage: UIImage? {
-       return UIImage.imageForIcon(with: todaysWeather[0].main)
+       return UIImage.imageForBackground(with: todaysWeather[0].main)
     }
 }

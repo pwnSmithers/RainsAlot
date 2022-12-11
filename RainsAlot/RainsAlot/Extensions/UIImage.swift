@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIImage {
-    class func imageForIcon(with name: String) -> UIImage? {
+    class func imageForBackground(with name: String) -> UIImage? {
         switch name {
         case "Clouds":
             return UIImage(named: "Cloudy")
@@ -15,10 +15,21 @@ extension UIImage {
             "Drizzle",
             "Thunderstorm":
             return UIImage(named: "Rainy")
-        case "Clear":
-            return UIImage(named: "Sunny")
         default:
             return UIImage(named: "Sunny")
+        }
+    }
+
+    class func iconForWeather(with name: String) -> UIImage? {
+        switch name {
+        case "Clouds":
+            return UIImage(named: "cloudyIcon")
+        case "Rain",
+            "Drizzle",
+            "Thunderstorm":
+            return UIImage(named: "rainyIcon")
+        default:
+            return UIImage(named: "sunnyIcon")
         }
     }
 }
