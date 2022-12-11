@@ -67,15 +67,16 @@ final class RootViewController: UIViewController {
     }
 
     func setupViewModel(with: RootViewModel) {
-        viewModel?.didFetchWeatherData = {[weak self] (data, error) in
+        viewModel?.didFetchWeatherData = {[weak self] (weatherData, error) in
             if let _ = error {
                 self?.presentAlert(of: .noWeatherDataAvailable)
-            } else if let data = data {
-                print("data \(data)")
+            } else if let weatherData = weatherData {
+                print("weather data \(weatherData)")
+                let dayViewModel = DayViewModel(currentWeatherData: weatherData.current, currentWind: weatherData.currentWind, todaysWeather: weatherData.currentWeather, currentLoaction: weatherData.locationName)
+                self?.dayViewController.viewModel = dayViewModel
             } else {
                 self?.presentAlert(of: .noWeatherDataAvailable)
             }
-
         }
     }
 
@@ -102,7 +103,7 @@ final class RootViewController: UIViewController {
 extension RootViewController {
     fileprivate enum Layout {
         enum DayView {
-            static let height: CGFloat = 200.0
+            static let height: CGFloat = 410
         }
     }
 }

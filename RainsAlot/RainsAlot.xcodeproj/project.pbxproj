@@ -33,6 +33,8 @@
 		9655F2852944CED2009B408A /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2832944CED2009B408A /* WeekViewModel.swift */; };
 		9655F2872944CF23009B408A /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2862944CF23009B408A /* ForecastWeather.swift */; };
 		9655F2882944CF23009B408A /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2862944CF23009B408A /* ForecastWeather.swift */; };
+		9655F28A2945C505009B408A /* WeekDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2892945C505009B408A /* WeekDayViewModel.swift */; };
+		9655F28C2945C532009B408A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F28B2945C532009B408A /* UIImage.swift */; };
 		96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5D82943178B002156C0 /* AppDelegate.swift */; };
 		96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DA2943178B002156C0 /* SceneDelegate.swift */; };
 		96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DC2943178B002156C0 /* RootViewController.swift */; };
@@ -75,6 +77,8 @@
 		9655F2802944CE5E009B408A /* DayViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewmodel.swift; sourceTree = "<group>"; };
 		9655F2832944CED2009B408A /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
 		9655F2862944CF23009B408A /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
+		9655F2892945C505009B408A /* WeekDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayViewModel.swift; sourceTree = "<group>"; };
+		9655F28B2945C532009B408A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		96D4C5D52943178B002156C0 /* RainsAlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainsAlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D4C5D82943178B002156C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96D4C5DA2943178B002156C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				9655F262294331D5009B408A /* UIViewController.swift */,
 				9655F2652943321E009B408A /* UIStoryboard.swift */,
+				9655F28B2945C532009B408A /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				9655F2832944CED2009B408A /* WeekViewModel.swift */,
+				9655F2892945C505009B408A /* WeekDayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -446,12 +452,14 @@
 				9655F25F29433132009B408A /* WeekViewController.swift in Sources */,
 				96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */,
 				9655F2872944CF23009B408A /* ForecastWeather.swift in Sources */,
+				9655F28A2945C505009B408A /* WeekDayViewModel.swift in Sources */,
 				9655F26E29435DC0009B408A /* Configuration.swift in Sources */,
 				9655F263294331D5009B408A /* UIViewController.swift in Sources */,
 				96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */,
 				96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */,
 				9655F25B294330F6009B408A /* DayViewController.swift in Sources */,
 				9655F2792944CA78009B408A /* CurrentWeatherData.swift in Sources */,
+				9655F28C2945C532009B408A /* UIImage.swift in Sources */,
 				9655F27C2944CB43009B408A /* ForecastWeatherData.swift in Sources */,
 				9655F2662943321E009B408A /* UIStoryboard.swift in Sources */,
 			);

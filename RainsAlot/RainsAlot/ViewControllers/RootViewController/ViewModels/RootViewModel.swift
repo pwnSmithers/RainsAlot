@@ -31,20 +31,22 @@ class RootViewModel {
                 print("Status code: \(response.statusCode)")
             }
 
-            if let error = error {
-                print("Unable to fetch weather data \(error)")
-                self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
-            } else if let data = data {
-                let jsonDecoder = JSONDecoder()
-                do {
-                    let currentWeather = try jsonDecoder.decode(CurrentWeather.self, from: data)
-                    self?.didFetchWeatherData?(currentWeather, nil)
-                } catch {
-                    print("Unable to decode data with \(error)")
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Unable to fetch weather data \(error)")
+                    self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
+                } else if let data = data {
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let currentWeather = try jsonDecoder.decode(CurrentWeather.self, from: data)
+                        self?.didFetchWeatherData?(currentWeather, nil)
+                    } catch {
+                        print("Unable to decode data with \(error)")
+                        self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
+                    }
+                } else {
                     self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
                 }
-            } else {
-                self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
             }
 
         }.resume()
