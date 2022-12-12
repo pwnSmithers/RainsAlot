@@ -31,7 +31,8 @@ struct WeatherRequest {
         components.queryItems = [
             URLQueryItem(name: "lat", value: String(latitude)),
             URLQueryItem(name: "lon", value: String(longitude)),
-            URLQueryItem(name: "appid", value: appId)
+            URLQueryItem(name: "appid", value: appId),
+            URLQueryItem(name: "units", value: "metric")
         ]
 
         return components.url!

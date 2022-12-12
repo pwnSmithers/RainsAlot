@@ -42,6 +42,7 @@
 		9655F29E2945DCFC009B408A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F28B2945C532009B408A /* UIImage.swift */; };
 		9655F2A12945DFBC009B408A /* WeekDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2A02945DFBC009B408A /* WeekDayTableViewCell.swift */; };
 		968014212945E415000B5688 /* WeekDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968014202945E415000B5688 /* WeekDayRepresentable.swift */; };
+		96801423294734E4000B5688 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96801422294734E4000B5688 /* Double.swift */; };
 		96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5D82943178B002156C0 /* AppDelegate.swift */; };
 		96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DA2943178B002156C0 /* SceneDelegate.swift */; };
 		96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DC2943178B002156C0 /* RootViewController.swift */; };
@@ -91,6 +92,7 @@
 		9655F29C2945D903009B408A /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		9655F2A02945DFBC009B408A /* WeekDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewCell.swift; sourceTree = "<group>"; };
 		968014202945E415000B5688 /* WeekDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayRepresentable.swift; sourceTree = "<group>"; };
+		96801422294734E4000B5688 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		96D4C5D52943178B002156C0 /* RainsAlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainsAlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D4C5D82943178B002156C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96D4C5DA2943178B002156C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				9655F262294331D5009B408A /* UIViewController.swift */,
 				9655F2652943321E009B408A /* UIStoryboard.swift */,
 				9655F28B2945C532009B408A /* UIImage.swift */,
+				96801422294734E4000B5688 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				9655F26E29435DC0009B408A /* Configuration.swift in Sources */,
 				9655F263294331D5009B408A /* UIViewController.swift in Sources */,
 				96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */,
+				96801423294734E4000B5688 /* Double.swift in Sources */,
 				96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */,
 				9655F25B294330F6009B408A /* DayViewController.swift in Sources */,
 				9655F2792944CA78009B408A /* CurrentWeatherData.swift in Sources */,

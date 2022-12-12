@@ -47,6 +47,7 @@ final class WeekViewController: UIViewController {
     //MARK: - Helper methods
     private func setupView() {
         view.backgroundColor = .white
+        weekTableView.separatorStyle = .none
     }
 
     private func setupViewModel(with viewmodel: WeekViewModel) {

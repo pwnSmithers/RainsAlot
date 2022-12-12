@@ -23,13 +23,13 @@ extension UIImage {
     class func iconForWeather(with name: String) -> UIImage? {
         switch name {
         case "Clouds":
-            return UIImage(named: "cloudyIcon")
+            return UIImage(named: "cloudyIcon")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         case "Rain",
             "Drizzle",
             "Thunderstorm":
-            return UIImage(named: "rainyIcon")
+            return UIImage(named: "rainyIcon")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         default:
-            return UIImage(named: "sunnyIcon")
+            return UIImage(named: "sunnyIcon")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         }
     }
 }

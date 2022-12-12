@@ -60,7 +60,7 @@ final class RootViewController: UIViewController {
         dayViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dayViewController.view.heightAnchor.constraint(equalToConstant: Layout.DayView.height).isActive = true
 
-        weekViewController.view.topAnchor.constraint(equalTo: dayViewController.view.bottomAnchor, constant: 20).isActive = true
+        weekViewController.view.topAnchor.constraint(equalTo: dayViewController.view.bottomAnchor, constant: 18).isActive = true
         weekViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         weekViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         weekViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

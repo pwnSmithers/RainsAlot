@@ -22,7 +22,6 @@ class WeekDayTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-
     }
 
     func confirgure(with representable: WeekDayRepresentable) {

@@ -15,15 +15,15 @@ struct DayViewModel {
     let currentLoaction: String
 
     var currentTemperature: String {
-        return String(format: "%.1f °F", currentWeatherData.temp)
+        return "\(Int(currentWeatherData.temp)) °C"
     }
 
     var minTemperature: String {
-        return String(format: "%.1f °F", currentWeatherData.tempMin)
+        return "\(Int(currentWeatherData.tempMin)) °C"
     }
 
     var maxTemperature: String {
-        return String(format: "%.1f °F", currentWeatherData.tempMax)
+        return "\(Int(currentWeatherData.tempMax)) °C"
     }
 
     var currentWeatherCondition: String {

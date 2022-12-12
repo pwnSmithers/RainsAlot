@@ -12,8 +12,7 @@ struct WeekDayViewModel {
     let dateFormatter = DateFormatter()
 
     var tempreture: String {
-        let temp = String(format: "%.1f °F", weatherData.main.temp)
-        return temp
+        return "\(Int(weatherData.main.temp)) °C"
     }
 
     var image: UIImage? {
