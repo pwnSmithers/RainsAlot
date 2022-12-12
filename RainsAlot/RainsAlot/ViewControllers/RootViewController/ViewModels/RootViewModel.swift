@@ -10,44 +10,112 @@ import Foundation
 class RootViewModel {
 
     enum WeatherDataError: Error {
+        case notAuthorizedToRequestLocation
+        case failedToRequestLocation
         case noWeatherDataAvailable
     }
 
+    enum CurrentWeatherDataResult {
+        case success(CurrentWeatherData)
+        case failure(WeatherDataError)
+    }
+
+    enum ForecastWeatherDataResult {
+        case success(ForecastWeatherData)
+        case failure(WeatherDataError)
+    }
+
+    enum CurrentLocationDataResult {
+        case success(LocationM)
+        case failure(WeatherDataError)
+    }
+
     //MARK: - Type aliases
-    typealias DidFetchWeatherDataCompletion = (Data?, Error) -> Void
+    typealias FetchCurrentWeatherCompletion = (CurrentWeatherDataResult) -> Void
+    typealias FetchForecastWeatherCompletion = (ForecastWeatherDataResult) -> Void
 
     //MARK: - Properties
-    var didFetchWeatherData: ((CurrentWeatherData?, WeatherDataError?) -> Void)?
+    var didFetchCurrentWeatherData: FetchCurrentWeatherCompletion?
+    var didFetchForecastWeatherData: FetchForecastWeatherCompletion?
+    private var locationService: LocationService?
 
     //MARK: - Initialization
     init() {
-        fetchWeatherData()
+        fetchLocation()
     }
     //MARK: - Helper methods
-    private func fetchWeatherData() {
+    private func fetchWeatherData(for location: LocationM) {
         let weatherRequest = WeatherRequest(scheme: WeatherService.scheme, host: WeatherService.host, path: WeatherService.currentWeatherPath, location: Defaults.location, appId: WeatherService.apiKey)
         URLSession.shared.dataTask(with: weatherRequest.url.absoluteURL) {[weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse {
                 print("Status code: \(response.statusCode)")
             }
 
-            if let error = error {
-                print("Unable to fetch weather data \(error)")
-                self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
-            } else if let data = data {
-                let jsonDecoder = JSONDecoder()
-                do {
-                    let currentWeather = try jsonDecoder.decode(CurrentWeather.self, from: data)
-                    self?.didFetchWeatherData?(currentWeather, nil)
-                } catch {
-                    print("Unable to decode data with \(error)")
-                    self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
+            DispatchQueue.main.async {
+                if let _ = error {
+                    let result: CurrentWeatherDataResult = .failure(.noWeatherDataAvailable)
+                    self?.didFetchCurrentWeatherData?(result)
+                } else if let data = data {
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let currentWeatherResponnse = try jsonDecoder.decode(CurrentWeather.self, from: data)
+                        let result: CurrentWeatherDataResult = .success(currentWeatherResponnse)
+                        self?.didFetchCurrentWeatherData?(result)
+                    } catch {
+                        let result: CurrentWeatherDataResult = .failure(.noWeatherDataAvailable)
+                        self?.didFetchCurrentWeatherData?(result)
+                    }
+                } else {
+                    let result: CurrentWeatherDataResult = .failure(.noWeatherDataAvailable)
+                    self?.didFetchCurrentWeatherData?(result)
                 }
-            } else {
-                self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
             }
 
         }.resume()
+    }
+
+    private func fetchForecastWeatherData(for location: LocationM) {
+        let weatherRequest = WeatherRequest(scheme: WeatherService.scheme, host: WeatherService.host, path: WeatherService.forecastWeatherPath, location: location, appId: WeatherService.apiKey)
+        URLSession.shared.dataTask(with: weatherRequest.url) {[weak self] (data, response, error) in
+            if let response = response as? HTTPURLResponse {
+
+                print("Status Code: \(response.statusCode) with response \(response)")
+            }
+            DispatchQueue.main.async {
+                if let error = error{
+                    print("Unable to fetch Weather Data \(error)")
+                    let result: ForecastWeatherDataResult = .failure(.noWeatherDataAvailable)
+                    self?.didFetchForecastWeatherData?(result)
+                } else if let data = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let forecastWeatherResponnse = try decoder.decode(ForecastWeather.self, from: data)
+                        let result: ForecastWeatherDataResult = .success(forecastWeatherResponnse)
+                        self?.didFetchForecastWeatherData?(result)
+                    } catch {
+                        print("Unable to decode JSON \(error)")
+                        let result: ForecastWeatherDataResult = .failure(.noWeatherDataAvailable)
+                        self?.didFetchForecastWeatherData?(result)
+                    }
+                } else {
+                    let result: ForecastWeatherDataResult = .failure(.noWeatherDataAvailable)
+                    self?.didFetchForecastWeatherData?(result)
+                }
+            }
+        }.resume()
+    }
+
+    private func fetchLocation() {
+        locationService = LocationManager()
+        locationService?.fetchLocation {[weak self] (result) in
+            switch result {
+            case .success(let location):
+                self?.fetchWeatherData(for: location)
+                self?.fetchForecastWeatherData(for: location)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }

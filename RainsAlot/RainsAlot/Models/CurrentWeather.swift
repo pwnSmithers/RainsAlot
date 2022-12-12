@@ -17,7 +17,6 @@ struct CurrentWeather: Codable {
     let wind: Wind
     let clouds: Clouds
     let dt: Int
-    let sys: Sys
     let timezone, id: Int
     let name: String
     let cod: Int
@@ -79,17 +78,24 @@ struct Weather: Codable {
 struct Wind: Codable {
     let speed: Double
     let deg: Int
-    let gust: Double
 }
 
 
 extension CurrentWeather: CurrentWeatherData {
-    var latitude: Double {
-        return coord.lat
+    var time: Int {
+        return timezone
     }
 
-    var longitude: Double {
-        return coord.lon
+    var locationName: String {
+        return name
+    }
+
+    var currentWeather: [WeatherConditions] {
+        return weather
+    }
+
+    var currentWind: CurrentWindConditions {
+        return wind
     }
 
     var current: CurrentWeatherConditions {
@@ -99,5 +105,14 @@ extension CurrentWeather: CurrentWeatherData {
 }
 
 extension Main: CurrentWeatherConditions {
+
+}
+
+extension Wind: CurrentWindConditions {
+
+}
+
+extension Weather: WeatherConditions {
+
 
 }

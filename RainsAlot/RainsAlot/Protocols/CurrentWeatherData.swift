@@ -8,10 +8,10 @@
 import Foundation
 
 protocol CurrentWeatherData {
-    var latitude: Double { get }
-    var longitude: Double { get }
-    
-    var current: CurrentWeatherConditions { get }
+    var current: CurrentWeatherConditions {get}
+    var currentWind: CurrentWindConditions {get}
+    var currentWeather: [WeatherConditions] {get}
+    var locationName: String {get}
 }
 
 protocol CurrentWeatherConditions {
