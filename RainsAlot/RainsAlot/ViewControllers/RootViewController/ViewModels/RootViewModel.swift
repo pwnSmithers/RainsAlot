@@ -45,7 +45,7 @@ class RootViewModel {
     }
     //MARK: - Helper methods
     private func fetchWeatherData(for location: LocationM) {
-        let weatherRequest = WeatherRequest(scheme: WeatherService.scheme, host: WeatherService.host, path: WeatherService.currentWeatherPath, location: Defaults.location, appId: WeatherService.apiKey)
+        let weatherRequest = WeatherRequest(scheme: WeatherService.scheme, host: WeatherService.host, path: WeatherService.currentWeatherPath, location: location, appId: WeatherService.apiKey)
         URLSession.shared.dataTask(with: weatherRequest.url.absoluteURL) {[weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse {
                 print("Status code: \(response.statusCode)")
