@@ -43,6 +43,8 @@
 		9655F2A12945DFBC009B408A /* WeekDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F2A02945DFBC009B408A /* WeekDayTableViewCell.swift */; };
 		968014212945E415000B5688 /* WeekDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968014202945E415000B5688 /* WeekDayRepresentable.swift */; };
 		96801423294734E4000B5688 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96801422294734E4000B5688 /* Double.swift */; };
+		9680142629473B2B000B5688 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680142529473B2B000B5688 /* LocationManager.swift */; };
+		9680142829473B40000B5688 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680142729473B40000B5688 /* LocationService.swift */; };
 		96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5D82943178B002156C0 /* AppDelegate.swift */; };
 		96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DA2943178B002156C0 /* SceneDelegate.swift */; };
 		96D4C5DD2943178B002156C0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C5DC2943178B002156C0 /* RootViewController.swift */; };
@@ -93,6 +95,8 @@
 		9655F2A02945DFBC009B408A /* WeekDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewCell.swift; sourceTree = "<group>"; };
 		968014202945E415000B5688 /* WeekDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayRepresentable.swift; sourceTree = "<group>"; };
 		96801422294734E4000B5688 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		9680142529473B2B000B5688 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9680142729473B40000B5688 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		96D4C5D52943178B002156C0 /* RainsAlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainsAlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D4C5D82943178B002156C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96D4C5DA2943178B002156C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				9655F2782944CA78009B408A /* CurrentWeatherData.swift */,
 				9655F27B2944CB43009B408A /* ForecastWeatherData.swift */,
+				9680142729473B40000B5688 /* LocationService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -257,6 +262,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		9680142429473B1B000B5688 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9680142529473B2B000B5688 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		96D4C5CC2943178B002156C0 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +293,7 @@
 		96D4C5D72943178B002156C0 /* RainsAlot */ = {
 			isa = PBXGroup;
 			children = (
+				9680142429473B1B000B5688 /* Managers */,
 				9655F2772944CA6C009B408A /* Protocols */,
 				9655F26C29435DB0009B408A /* Configuration */,
 				9655F26829434C65009B408A /* Models */,
@@ -500,6 +514,7 @@
 				9655F27229435FF7009B408A /* RootViewModel.swift in Sources */,
 				9655F275294364A5009B408A /* CurrentWeather.swift in Sources */,
 				9655F26A29434C73009B408A /* WeatherRequest.swift in Sources */,
+				9680142829473B40000B5688 /* LocationService.swift in Sources */,
 				9655F2842944CED2009B408A /* WeekViewModel.swift in Sources */,
 				9655F2812944CE5E009B408A /* DayViewmodel.swift in Sources */,
 				9655F25F29433132009B408A /* WeekViewController.swift in Sources */,
@@ -511,6 +526,7 @@
 				9655F263294331D5009B408A /* UIViewController.swift in Sources */,
 				96D4C5D92943178B002156C0 /* AppDelegate.swift in Sources */,
 				96801423294734E4000B5688 /* Double.swift in Sources */,
+				9680142629473B2B000B5688 /* LocationManager.swift in Sources */,
 				96D4C5DB2943178B002156C0 /* SceneDelegate.swift in Sources */,
 				9655F25B294330F6009B408A /* DayViewController.swift in Sources */,
 				9655F2792944CA78009B408A /* CurrentWeatherData.swift in Sources */,

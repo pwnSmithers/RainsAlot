@@ -25,6 +25,11 @@ class RootViewModel {
         case failure(WeatherDataError)
     }
 
+    enum CurrentLocationDataResult {
+        case success(LocationM)
+        case failure(WeatherDataError)
+    }
+
     //MARK: - Type aliases
     typealias FetchCurrentWeatherCompletion = (CurrentWeatherDataResult) -> Void
     typealias FetchForecastWeatherCompletion = (ForecastWeatherDataResult) -> Void
@@ -32,14 +37,14 @@ class RootViewModel {
     //MARK: - Properties
     var didFetchCurrentWeatherData: FetchCurrentWeatherCompletion?
     var didFetchForecastWeatherData: FetchForecastWeatherCompletion?
+    private var locationService: LocationService?
 
     //MARK: - Initialization
     init() {
-        fetchWeatherData()
-        fetchForecastWeatherData(for: LocationM(latitude: Defaults.location.latitude, longitude: Defaults.location.longitude))
+        fetchLocation()
     }
     //MARK: - Helper methods
-    private func fetchWeatherData() {
+    private func fetchWeatherData(for location: LocationM) {
         let weatherRequest = WeatherRequest(scheme: WeatherService.scheme, host: WeatherService.host, path: WeatherService.currentWeatherPath, location: Defaults.location, appId: WeatherService.apiKey)
         URLSession.shared.dataTask(with: weatherRequest.url.absoluteURL) {[weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse {
@@ -98,6 +103,19 @@ class RootViewModel {
                 }
             }
         }.resume()
+    }
+
+    private func fetchLocation() {
+        locationService = LocationManager()
+        locationService?.fetchLocation {[weak self] (result) in
+            switch result {
+            case .success(let location):
+                self?.fetchWeatherData(for: location)
+                self?.fetchForecastWeatherData(for: location)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }
