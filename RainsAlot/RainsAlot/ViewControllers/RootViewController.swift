@@ -26,6 +26,8 @@ final class RootViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var mainNavigationBar: UINavigationBar!
+
     private let dayViewController: DayViewController = {
         guard let dayViewController = UIStoryboard.main.instantiateViewController(withIdentifier: DayViewController.storyboardIdentifier) as? DayViewController else {
             fatalError("Unable to Instantiate DayViewController")
@@ -45,7 +47,26 @@ final class RootViewController: UIViewController {
     //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupChildViewController()
+    }
+
+    private func setupView() {
+        let navigationItem = UINavigationItem()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favorites", style: .plain, target: self, action: #selector(goToFavorites))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(goToSearch))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.leftBarButtonItem?.tintColor = .white
+        navigationItem.title = "RainsAlot"
+        mainNavigationBar.setItems([navigationItem], animated: true)
+    }
+
+    @objc func goToFavorites() {
+        print("Go to favorites")
+    }
+
+    @objc func goToSearch() {
+        print("Go to search")
     }
 
     private func setupChildViewController() {
@@ -125,7 +146,6 @@ final class RootViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
-
 }
 
 extension RootViewController {

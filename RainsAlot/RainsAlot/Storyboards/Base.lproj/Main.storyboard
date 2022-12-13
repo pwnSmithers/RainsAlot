@@ -24,7 +24,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="RainsAlot" id="Cpd-Ec-1DV"/>
+                                    <navigationItem title="RainsAlot" id="wPl-cO-iHJ"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -37,6 +37,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jtP-zi-4pZ"/>
+                    <connections>
+                        <outlet property="mainNavigationBar" destination="L1W-US-a1i" id="ABO-el-mjs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
