@@ -55,7 +55,7 @@ final class RootViewController: UIViewController {
         view.addSubview(dayViewController.view)
         view.addSubview(weekViewController.view)
 
-        dayViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        dayViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         dayViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dayViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dayViewController.view.heightAnchor.constraint(equalToConstant: Layout.DayView.height).isActive = true

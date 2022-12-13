@@ -16,13 +16,31 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1W-US-a1i">
+                                <rect key="frame" x="0.0" y="42" width="390" height="44"/>
+                                <color key="barTintColor" red="0.41180115940000001" green="0.51718318460000001" blue="0.57255983349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="RainsAlot" id="Cpd-Ec-1DV"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.41180115940000001" green="0.51718318460000001" blue="0.57255983349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L1W-US-a1i" secondAttribute="bottom" constant="724" id="Qbr-eG-qAg"/>
+                            <constraint firstItem="L1W-US-a1i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xsg-Ur-vLT"/>
+                            <constraint firstItem="L1W-US-a1i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YYu-O9-hda"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jtP-zi-4pZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="4"/>
+            <point key="canvasLocation" x="1066.1538461538462" y="3.5545023696682461"/>
         </scene>
         <!--Day View Controller-->
         <scene sceneID="1tJ-u0-bLJ">
@@ -150,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIm-yu-FB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796.92307692307691" y="1.4218009478672986"/>
+            <point key="canvasLocation" x="1726.1538461538462" y="1.4218009478672986"/>
         </scene>
         <!--Week View Controller-->
         <scene sceneID="Toh-Bx-1vV">
@@ -235,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0P-FT-zPf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476.9230769230769" y="3.5545023696682461"/>
+            <point key="canvasLocation" x="2406.1538461538462" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>
